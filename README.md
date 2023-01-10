@@ -1,5 +1,5 @@
 #Threads and ThreadPool - Ex2_1
-![צילום מסך 2023-01-09 185432](https://user-images.githubusercontent.com/118388214/211363477-9c4e03bc-5644-4ecb-951f-6d7bb9e9506b.png)
+![image](https://user-images.githubusercontent.com/118388214/211653361-9ed713e4-bb41-4b2d-93cf-560d2cdc0556.png)
 
 
 At first we created 10,000 files with random amount of lines. In our main we measure the time it took to the different techniques 
@@ -36,7 +36,7 @@ However , notice that when using a lot of file we use a lot of resources so we n
 Therfore, when we know that we will use too much resources it might be better not to use threads.
 
 #CustomExecutor - Ex2_2
-![image](https://user-images.githubusercontent.com/118388214/211363743-d218ead6-0195-4c86-9212-309731eab746.png)
+![image](https://user-images.githubusercontent.com/118388214/211653486-1949e7c9-2ed0-443e-8cc3-3b66cad93edc.png)
 
 Firstly, we created the class Task.
 Task is class that implements Callable which means that we can makes objects with call
