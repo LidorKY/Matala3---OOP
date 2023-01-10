@@ -1,8 +1,10 @@
 package Ex2_2;
 
 import java.util.concurrent.Callable;
+import java.io.*;
+import java.util.concurrent.Future;
 
-public class Task<T> implements Callable<T> ,Comparable {
+public class Task<T> implements Callable ,Comparable {
 
     private Callable func ;
     private int priority;
@@ -12,7 +14,7 @@ public class Task<T> implements Callable<T> ,Comparable {
      * @param func - this parameter is the thread that we want to create that can return argument of future type.
      * @param task - we use this parameter in order to get the priority value of the task.
      */
-    private Task(Callable<T> func, TaskType task){
+    private Task(Callable func, TaskType task){
         this.func = func;
         priority = task.getPriorityValue();
     }
@@ -22,7 +24,7 @@ public class Task<T> implements Callable<T> ,Comparable {
      * to be equals to 3.
      * @param func - this parameter is the thread that we want to create that can return argument of future type.
      */
-    private Task(Callable<T> func){
+    private Task(Callable func){
         this.func = func;
         priority=3;
     }
@@ -40,7 +42,6 @@ public class Task<T> implements Callable<T> ,Comparable {
     }
 
     //default Factory//
-
     /**
      * the same idea like the finction above, but for the default constructor.
      * @param func - this parameter is the thread that we want to create that can return argument of future type.
@@ -51,13 +52,13 @@ public class Task<T> implements Callable<T> ,Comparable {
     }
 
     /**
-     * impleminting this method ron the Callable interface gives us the option to create a thread of Callable-type.
+     * implemnting this method ron the Callable interface gives us the option to create a thread of Callable-type.
      * @return - this function returns the result of the unction called in Main or Test.
      * @throws Exception - since we used the java method - call, we have to throw an exception.
      */
     @Override
-    public T call() throws Exception {
-        return (T) this.func.call();
+    public Object call() throws Exception {
+        return this.func.call();
     }
 
     /**
@@ -70,11 +71,10 @@ public class Task<T> implements Callable<T> ,Comparable {
      */
     @Override
     public int compareTo(Object t1){
-
-        if(this.priority < ((Task) t1).priority){
+        if(this.priority< ((Task) t1).priority){
             return 1;
         }
-        else if(this.priority > ((Task) t1).priority){
+        else if(this.priority> ((Task) t1).priority){
             return -1;
         }
         else{
@@ -89,6 +89,4 @@ public class Task<T> implements Callable<T> ,Comparable {
     public int getPriority(){
         return this.priority;
     }
-
-
 }

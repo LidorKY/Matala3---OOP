@@ -7,7 +7,7 @@ import java.util.concurrent.*;
 public class Tests {
     public static final Logger logger = LoggerFactory.getLogger(Tests.class);
     @Test
-    public void partialTest(){
+    public void partialTest() throws Exception {
         CustomExecutor customExecutor = new CustomExecutor();
         var task = Task.createTask(()->{
             int sum = 0;
